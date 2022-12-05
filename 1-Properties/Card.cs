@@ -33,12 +33,7 @@ namespace Properties
         }
 
         /// <inheritdoc cref="object.ToString"/>
-        public override string ToString()
-        {
-            // TODO understand string interpolation
-            return $"{this.GetType().Name}(Name={Name}, Seed={Seed}, Ordinal={Ordinal})";
-        }
-
+        public override string ToString() => $"{this.GetType().Name}(Name={Name}, Seed={Seed}, Ordinal={Ordinal})";
         // TODO generate Equals(object obj)
 
         // TODO generate GetHashCode()
