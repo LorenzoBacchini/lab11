@@ -11,69 +11,69 @@ namespace ComplexAlgebra
         /// TODO: uncomment the commented code, if any
         static void Main(string[] args)
         {
-            // var zero = new Complex(0, 0);
-            // var one = new Complex(1, 0);
-            // var i = new Complex(0, 1);
-            // var onePlusI = one.Plus(i);
-            // var iPlusOne = i.Plus(one);
-            // var oneMinusI = one.Plus(i).Complement();
-            // var minusI = oneMinusI.Minus(one);
-            //
-            // Console.WriteLine(zero.Real); // 0
-            // Console.WriteLine(zero.Imaginary); // 0
-            // Console.WriteLine(zero.Modulus); // 0
-            // Console.WriteLine(zero.Phase); // 0
-            // Console.WriteLine(zero.ToString()); // 0
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(one.Real); // 1
-            // Console.WriteLine(one.Imaginary); // 0
-            // Console.WriteLine(one.Modulus); // 1
-            // Console.WriteLine(one.Phase); // 0
-            // Console.WriteLine(one.ToString()); // 1
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(i.Real); // 0
-            // Console.WriteLine(i.Imaginary); // 1
-            // Console.WriteLine(i.Modulus); // 1
-            // Console.WriteLine(i.Phase); // 1,5707963267948966 (Math.PI / 2)
-            // Console.WriteLine(i.ToString()); // i
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(onePlusI.Real); // 1
-            // Console.WriteLine(onePlusI.Imaginary); // 1
-            // Console.WriteLine(onePlusI.Modulus); // 1,4142135623730951 (Math.Sqrt(2))
-            // Console.WriteLine(onePlusI.Phase); // 0,7853981633974483 (Math.PI / 4)
-            // Console.WriteLine(onePlusI.ToString()); // 1 + i
-            // Console.WriteLine(onePlusI.Equals(iPlusOne)); // true
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(iPlusOne.Real); // 1
-            // Console.WriteLine(iPlusOne.Imaginary); // 1
-            // Console.WriteLine(iPlusOne.Modulus); // 1,4142135623730951 (Math.Sqrt(2))
-            // Console.WriteLine(iPlusOne.Phase); // 0,7853981633974483 (Math.PI / 4)
-            // Console.WriteLine(iPlusOne.ToString()); // 1 + i
-            // Console.WriteLine(iPlusOne.Equals(onePlusI)); // true
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(oneMinusI.Real);  // 1
-            // Console.WriteLine(oneMinusI.Imaginary);  // -1
-            // Console.WriteLine(oneMinusI.Modulus);  // 1,4142135623730951 (Math.Sqrt(2))
-            // Console.WriteLine(oneMinusI.Phase);  // -0,7853981633974483 (-Math.PI / 4)
-            // Console.WriteLine(oneMinusI.ToString());  // 1 - i
-            //
-            // Console.WriteLine("---");
-            //
-            // Console.WriteLine(minusI.Real);  // 0
-            // Console.WriteLine(minusI.Imaginary);  // -1
-            // Console.WriteLine(minusI.Modulus);  // 1
-            // Console.WriteLine(minusI.Phase);  // -1,5707963267948966 (Math.PI / 2)
-            // Console.WriteLine(minusI.ToString());  // -i
+            var zero = new Complex(0, 0);
+            var one = new Complex(1, 0);
+            var i = new Complex(0, 1);
+            var oneSumI = one.Sum(i);
+            var iSumOne = i.Sum(one);
+            var oneMinI = one.Sum(i).Complement();
+            var MinI = oneMinI.Min(one);
+            
+            Console.WriteLine(zero.RealPart); // 0
+            Console.WriteLine(zero.ImPart); // 0
+            Console.WriteLine(zero.GetModule); // 0
+            Console.WriteLine(zero.GetPhase); // 0
+            Console.WriteLine(zero.ToString()); // 0
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(one.RealPart); // 1
+            Console.WriteLine(one.ImPart); // 0
+            Console.WriteLine(one.GetModule); // 1
+            Console.WriteLine(one.GetPhase); // 0
+            Console.WriteLine(one.ToString()); // 1
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(i.RealPart); // 0
+            Console.WriteLine(i.ImPart); // 1
+            Console.WriteLine(i.GetModule); // 1
+            Console.WriteLine(i.GetPhase); // 1,5707963267948966 (Math.PI / 2)
+            Console.WriteLine(i.ToString()); // i
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(oneSumI.RealPart); // 1
+            Console.WriteLine(oneSumI.ImPart); // 1
+            Console.WriteLine(oneSumI.GetModule); // 1,4142135623730951 (Math.Sqrt(2))
+            Console.WriteLine(oneSumI.GetPhase); // 0,7853981633974483 (Math.PI / 4)
+            Console.WriteLine(oneSumI.ToString()); // 1 + i
+            Console.WriteLine(oneSumI.Equals(iSumOne)); // true
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(iSumOne.RealPart); // 1
+            Console.WriteLine(iSumOne.ImPart); // 1
+            Console.WriteLine(iSumOne.GetModule); // 1,4142135623730951 (Math.Sqrt(2))
+            Console.WriteLine(iSumOne.GetPhase); // 0,7853981633974483 (Math.PI / 4)
+            Console.WriteLine(iSumOne.ToString()); // 1 + i
+            Console.WriteLine(iSumOne.Equals(oneSumI)); // true
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(oneMinI.RealPart);  // 1
+            Console.WriteLine(oneMinI.ImPart);  // -1
+            Console.WriteLine(oneMinI.GetModule);  // 1,4142135623730951 (Math.Sqrt(2))
+            Console.WriteLine(oneMinI.GetPhase);  // -0,7853981633974483 (-Math.PI / 4)
+            Console.WriteLine(oneMinI.ToString());  // 1 - i
+            
+            Console.WriteLine("---");
+            
+            Console.WriteLine(MinI.RealPart);  // 0
+            Console.WriteLine(MinI.ImPart);  // -1
+            Console.WriteLine(MinI.GetModule);  // 1
+            Console.WriteLine(MinI.GetPhase);  // -1,5707963267948966 (Math.PI / 2)
+            Console.WriteLine(MinI.ToString());  // -i
         }
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace ComplexAlgebra
 {
     /// <summary>
@@ -18,5 +20,44 @@ namespace ComplexAlgebra
     public class Complex
     {
         // TODO: fill this class\
+        public double RealPart { get; }
+        public double ImPart { get; }
+
+        public Complex(double realPart, double imPart)
+        {
+            RealPart = realPart;
+            ImPart = imPart;
+        }
+
+        public double GetModule => Math.Sqrt(RealPart*RealPart + ImPart*ImPart);
+
+        public double GetPhase => Math.Atan2(ImPart, RealPart);
+
+        public Complex Complement() => new Complex(RealPart, -ImPart);
+
+        public Complex Sum(Complex other) => new Complex(RealPart + other.RealPart, ImPart + other.ImPart);
+
+        public Complex Min(Complex other) => new Complex(RealPart - other.RealPart, ImPart - other.ImPart);
+
+        public override string ToString() => RealPart.ToString() + ImPart.ToString();
+
+        public override int GetHashCode() => HashCode.Combine(RealPart, ImPart);
+
+        public override bool Equals(Object other)
+        {
+            if(other.GetType().Name.Equals("Complex"))
+            {
+                return Equals((Complex) other);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool Equals(Complex other)
+        {
+            return RealPart == other.RealPart && ImPart == other.ImPart;
+        }
     }
 }
