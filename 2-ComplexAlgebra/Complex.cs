@@ -39,7 +39,21 @@ namespace ComplexAlgebra
 
         public Complex Min(Complex other) => new Complex(RealPart - other.RealPart, ImPart - other.ImPart);
 
-        public override string ToString() => RealPart.ToString() + ImPart.ToString();
+        public override string ToString()
+        {
+            if (ImPart == 0.0) return RealPart.ToString();
+            var imAbs = Math.Abs(ImPart);
+            var imValue = imAbs == 1.0 ? "" : imAbs.ToString();
+            string sign;
+            if (RealPart == 0d)
+            {
+                sign = ImPart > 0 ? "" : "-";
+                return sign + "i" + imValue;
+            }
+
+            sign = ImPart > 0 ? "+" : "-";
+            return $"{RealPart} {sign} i{imValue}";
+        }
 
         public override int GetHashCode() => HashCode.Combine(RealPart, ImPart);
 
