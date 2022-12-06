@@ -34,8 +34,23 @@ namespace Properties
 
         /// <inheritdoc cref="object.ToString"/>
         public override string ToString() => $"{this.GetType().Name}(Name={Name}, Seed={Seed}, Ordinal={Ordinal})";
-        // TODO generate Equals(object obj)
+        
+        protected bool Equals(Card other)
+        {
+            return Seed == other.Seed && Name == other.Name && Ordinal == other.Ordinal;
+        }
 
-        // TODO generate GetHashCode()
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Card)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Seed, Name, Ordinal);
+        }
     }
 }

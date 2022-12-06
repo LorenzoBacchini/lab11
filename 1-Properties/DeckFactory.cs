@@ -13,29 +13,23 @@ namespace Properties
 
         private string[] _names;
 
-
-        // TODO improve
-        
         public IList<string> Seeds
         {
             get { return _seeds.ToList(); }
             set { _seeds = value.ToArray(); }
         }
-
-        // TODO improve
+        
         public IList<string> Names
         {
             get { return _names.ToList();  }
             set {  _names = value.ToArray(); }
         }
-
-        // TODO improve
+        
         public int GetDeckSize()
         {
             return _names.Length * _seeds.Length;
         }
-
-        /// TODO improve
+        
         public ISet<Card> GetDeck()
         {
             if (_names == null || _seeds == null)
